@@ -54,11 +54,10 @@ viewer.scene.globe.depthTestAgainstTerrain = true;
      destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,40000.0)
     });
 
-// Load the NYC buildings tileset
-var tileset = new Cesium.Cesium3DTileset({
-  url: Cesium.IonResource.fromAssetId(75343),
-});
-viewer.scene.primitives.add(tileset);
+    //タイルセットの追加
+    var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+     url : 'https://yuya-mlit.github.io/3dtiles/13101_chiyoda-ku/tileset.json'
+}));
 
 
     </script>
