@@ -30,13 +30,18 @@
 
     <script>
 
-var viewer = new Cesium.Viewer("cesiumContainer", {
-  terrainProvider: Cesium.createWorldTerrain(),
-});
+    var viewer = new Cesium.Viewer("cesiumContainer", {
+     terrainProvider: Cesium.createWorldTerrain(),
+    });
 
-viewer.scene.globe.depthTestAgainstTerrain = true;
+    viewer.scene.globe.depthTestAgainstTerrain = true;
 
-
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+        imageryProvider: raster_tile,
+        baseLayerPicker: false,
+        geocoder: false,
+        homeButton: false
+      })
 
       var point = viewer.entities.add({
       name:"プラトー！", //レイヤ名
