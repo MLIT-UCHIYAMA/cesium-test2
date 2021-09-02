@@ -59,11 +59,20 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   terrainProvider: worldTerrain,
   //地形クランプ
   heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+  
+  //tilemapjp/Cesium-JapanGSI
+  imageryProvider: new Cesium.JapanGSIImageryProvider({
+            layerLists: ["ort","relief","std"]
+        }),
+        terrainProvider: new Cesium.JapanGSITerrainProvider({}),
+        mapProjection: new Cesium.WebMercatorProjection(Cesium.Ellipsoid.WGS84)
+
   //地理院ベクタータイルを使ってみる
-  imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-  url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
-  credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
-  })
+  //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+  //url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+  //credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+  //})
+
 });
 
 //against terrain
@@ -86,7 +95,7 @@ tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
 point = viewer.entities.add({
       name:"プラトー！", //レイヤ名
       description:"われらのオフィス",　//レイヤの説明
-        position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,100), //経度,緯度,高さ
+        position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,500), //経度,緯度,高さ
         point : {
             pixelSize : 10, //ポイントのサイズ
             color : Cesium.Color.BLUE //ポイントの色
