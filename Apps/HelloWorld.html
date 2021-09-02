@@ -30,13 +30,10 @@
 
     <script>
 
-    var viewer = new Cesium.Viewer("cesiumContainer", {
-     terrainProvider: Cesium.createWorldTerrain(),
-    });
-
     viewer.scene.globe.depthTestAgainstTerrain = true;
 
     const viewer = new Cesium.Viewer('cesiumContainer', {
+      terrainProvider: Cesium.createWorldTerrain(),
         imageryProvider: raster_tile,
         baseLayerPicker: false,
         geocoder: false,
