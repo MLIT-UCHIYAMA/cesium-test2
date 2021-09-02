@@ -28,11 +28,26 @@
   <body>
     <div id="cesiumContainer"></div>
 
-  <script>
-
+<script>
+//cesiumの読み込み
 var viewer = new Cesium.Viewer("cesiumContainer", {
-  terrainProvider: Cesium.createWorldTerrain(),
+  //2.5次元表現をデフォルトに
+  sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
+  //terrain読み込み。一度切る。terrainProvider: Cesium.createWorldTerrain(),
+  //Hide the base layer picker
+  baseLayerPicker : false,
+  timeline : false,
+  animation : false,
+  homeButton: false,
+  vrButton: true,
+  geocoder:false,
+  sceneModePicker:false,
+  navigationHelpButton:false,
+  //Use OpenStreetMaps
+  imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+  url : 'https://a.tile.openstreetmap.org/'})
 });
+
 var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 // Add Cesium OSM buildings to the scene as our example 3D Tileset.
@@ -54,8 +69,6 @@ point = viewer.entities.add({
     viewer.camera.flyTo({   
      destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
     });
-
-
 
   </script>
   </body>
