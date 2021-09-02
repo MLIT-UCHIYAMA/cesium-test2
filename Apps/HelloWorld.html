@@ -29,6 +29,12 @@
     <div id="cesiumContainer"></div>
 
 <script>
+//terrainの読み込み。
+var worldTerrain = Cesium.createWorldTerrain({
+  requestWaterMask: true,
+  requestVertexNormals: true,
+});
+
 //cesiumの読み込み
 var viewer = new Cesium.Viewer("cesiumContainer", {
   //2.5次元表現をデフォルトに
