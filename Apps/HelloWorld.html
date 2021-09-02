@@ -57,8 +57,6 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   navigationHelpButton:false,
   shouldAnimate: true,
   terrainProvider: worldTerrain,
-  //againstterrain
-  depthTestAgainstTerrain = false,
   //地形クランプ
   heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
   //地理院ベクタータイルを使ってみる
@@ -67,6 +65,10 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
   })
 });
+
+//against terrain
+var scene = viewer.scene;
+    scene.globe.depthTestAgainstTerrain = true;
 
 //地形にクランプさせる
 //var HeightReference = {
