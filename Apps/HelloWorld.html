@@ -43,7 +43,9 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   geocoder:false,
   sceneModePicker:false,
   navigationHelpButton:false,
-  //Use OpenStreetMaps
+  shouldAnimate: true,
+  terrainProvider: worldTerrain,
+  //地理院ベクタータイルを使ってみる
   imageryProvider : new Cesium.OpenStreetMapImageryProvider({
   url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
   credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
@@ -56,6 +58,7 @@ tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
     url : "https://yuya-mlit.github.io/cesium-test2/Apps/3dtiles/13101_chiyoda-ku/tileset.json"
 }));
 
+//ポイントオブジェクトを追加。
 point = viewer.entities.add({
       name:"プラトー！", //レイヤ名
       description:"われらのオフィス",　//レイヤの説明
@@ -66,6 +69,7 @@ point = viewer.entities.add({
         }
     });
 
+//カメラの初期位置（フライ設定）
     viewer.camera.flyTo({   
      destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
     });
