@@ -67,7 +67,8 @@ var HeightReference = {
 // 3dtilesの追加.
 var osmBuildingsTileset = Cesium.createOsmBuildings();
 tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
-    url : "https://yuya-mlit.github.io/cesium-test2/Apps/3dtiles/13101_chiyoda-ku/tileset.json"
+    url : "https://yuya-mlit.github.io/cesium-test2/Apps/3dtiles/13101_chiyoda-ku/tileset.json",
+    heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
 }));
 
 //ポイントオブジェクトを追加。
