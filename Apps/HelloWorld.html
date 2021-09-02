@@ -32,13 +32,7 @@
 
     viewer.scene.globe.depthTestAgainstTerrain = true;
 
-    const viewer = new Cesium.Viewer('cesiumContainer', {
-      terrainProvider: Cesium.createWorldTerrain(),
-        imageryProvider: raster_tile,
-        baseLayerPicker: false,
-        geocoder: false,
-        homeButton: false
-      })
+
 
       //タイルセットの追加
 var tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
