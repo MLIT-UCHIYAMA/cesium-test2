@@ -43,6 +43,14 @@ var worldTerrain = Cesium.createWorldTerrain({
 
 //cesiumの読み込み
 var viewer = new Cesium.Viewer("cesiumContainer", {
+  
+  //tilemapjp Cesium-JapanGSI
+  imageryProvider: new Cesium.JapanGSIImageryProvider({
+            layerLists: ["ort","relief","std"]
+        }),
+        terrainProvider: new Cesium.JapanGSITerrainProvider({}),
+        mapProjection: new Cesium.WebMercatorProjection(Cesium.Ellipsoid.WGS84),
+
   //2.5次元表現をデフォルトに
   sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
   //terrain読み込み。一度切る。terrainProvider: Cesium.createWorldTerrain(),
@@ -60,12 +68,7 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   //地形クランプ
   heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
   
-  //tilemapjp Cesium-JapanGSI
-  imageryProvider: new Cesium.JapanGSIImageryProvider({
-            layerLists: ["ort","relief","std"]
-        }),
-        terrainProvider: new Cesium.JapanGSITerrainProvider({}),
-        mapProjection: new Cesium.WebMercatorProjection(Cesium.Ellipsoid.WGS84)
+
 
   //地理院ベクタータイルを使ってみる
   //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
