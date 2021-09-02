@@ -11,6 +11,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
     />
     <title>Hello World!</title>
+    <link  href="./bucket.css" rel="stylesheet" />
     <script src="../Build/Cesium/Cesium.js"></script>
     <script src="./JapanGSIImageryProvider.js"></script>
     <script src="./JapanGSITerrainProvider.js"></script>
@@ -33,10 +34,10 @@
 
 <script>
 //terrainの読み込み。
-var worldTerrain = Cesium.createWorldTerrain({
-  requestWaterMask: true,
-  requestVertexNormals: true,
-});
+//var worldTerrain = Cesium.createWorldTerrain({
+//  requestWaterMask: true,
+//  requestVertexNormals: true,
+//});
 
 //kanahiro packageの読み込み2
 //import GsiTerrainProvider from 'cesium-gsi-terrain';
