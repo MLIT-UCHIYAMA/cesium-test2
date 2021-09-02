@@ -45,12 +45,12 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   navigationHelpButton:false,
   //Use OpenStreetMaps
   imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-  url : 'https://a.tile.openstreetmap.org/'})
+  url : 'https://cyberjapandata.gsi.go.jp/xyz/std/'
+  credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+  })
 });
 
-var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-
-// Add Cesium OSM buildings to the scene as our example 3D Tileset.
+// 3dtilesの追加.
 var osmBuildingsTileset = Cesium.createOsmBuildings();
 tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
     url : "https://yuya-mlit.github.io/cesium-test2/Apps/3dtiles/13101_chiyoda-ku/tileset.json"
