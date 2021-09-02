@@ -35,6 +35,13 @@
 //  requestVertexNormals: true,
 //});
 
+//kanahiro packageの読み込み
+import GsiTerrainProvider from 'cesium-gsi-terrain';
+
+const viewer = new Viewer(canvas, {
+    terrainProvider: new GsiTerrainProvider({}),
+});
+
 //cesiumの読み込み
 var viewer = new Cesium.Viewer("cesiumContainer", {
   //2.5次元表現をデフォルトに
