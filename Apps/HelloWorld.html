@@ -41,7 +41,18 @@ tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
     url : "https://yuya-mlit.github.io/cesium-test2/Apps/3dtiles/13101_chiyoda-ku/tileset.json"
 }));
 
+var point = viewer.entities.add({
+      name:"プラトー！", //レイヤ名
+      description:"われらのオフィス",　//レイヤの説明
+        position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,100), //経度,緯度,高さ
+        point : {
+            pixelSize : 10, //ポイントのサイズ
+            color : Cesium.Color.BLUE //ポイントの色
+        }
+    });
 
+    viewer.zoomTo(viewer.entities);　//レイヤにズーム
+    
   </script>
   </body>
 </html>
