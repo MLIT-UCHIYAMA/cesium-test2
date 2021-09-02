@@ -12,6 +12,8 @@
     />
     <title>Hello World!</title>
     <script src="../Build/Cesium/Cesium.js"></script>
+    <script src="./JapanGSIImageryProvider.js"></script>
+    <script src="./JapanGSITerrainProvider.js"></script>
     <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
       html,
@@ -25,6 +27,7 @@
       }
     </style>
   </head>
+  
   <body>
     <div id="cesiumContainer"></div>
 
@@ -48,8 +51,8 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   imageryProvider: new Cesium.JapanGSIImageryProvider({
             layerLists: ["ort","relief","std"]
         }),
-        terrainProvider: new Cesium.JapanGSITerrainProvider({}),
-        mapProjection: new Cesium.WebMercatorProjection(Cesium.Ellipsoid.WGS84),
+  terrainProvider: new Cesium.JapanGSITerrainProvider({}),
+  mapProjection: new Cesium.WebMercatorProjection(Cesium.Ellipsoid.WGS84),
 
   //2.5次元表現をデフォルトに
   sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
