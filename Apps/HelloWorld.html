@@ -30,17 +30,16 @@
 
 <script>
 //terrainの読み込み。
-//var worldTerrain = Cesium.createWorldTerrain({
-//  requestWaterMask: true,
-//  requestVertexNormals: true,
-//});
+var worldTerrain = Cesium.createWorldTerrain({
+  requestWaterMask: true,
+  requestVertexNormals: true,
+});
 
 //kanahiro packageの読み込み2
-import GsiTerrainProvider from 'cesium-gsi-terrain';
-
-const viewer = new Viewer(canvas, {
-    terrainProvider: new GsiTerrainProvider({}),
-});
+//import GsiTerrainProvider from 'cesium-gsi-terrain';
+//const viewer = new Viewer(canvas, {
+//    terrainProvider: new GsiTerrainProvider({}),
+//});
 
 //cesiumの読み込み
 var viewer = new Cesium.Viewer("cesiumContainer", {
@@ -57,7 +56,9 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   sceneModePicker:false,
   navigationHelpButton:false,
   shouldAnimate: true,
-  //terrainProvider: worldTerrain,
+  terrainProvider: worldTerrain,
+  //地形クランプ
+  heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
   //地理院ベクタータイルを使ってみる
   imageryProvider : new Cesium.OpenStreetMapImageryProvider({
   url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
@@ -75,7 +76,6 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
 var osmBuildingsTileset = Cesium.createOsmBuildings();
 tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
     url : "https://yuya-mlit.github.io/cesium-test2/Apps/3dtiles/13101_chiyoda-ku/tileset.json",
-    heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
 }));
 
 //ポイントオブジェクトを追加。
